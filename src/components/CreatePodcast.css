@@ -1,0 +1,62 @@
+#create-podcast {
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+  max-width: 500px;
+}
+
+#create-podcast input[type="text"] {
+  font-size: 1em;
+  padding: 10px;
+  font-family: "Quicksand", sans-serif;
+  width: 80%;
+}
+
+#create-podcast fieldset select {
+  font-family: "Quicksand", sans-serif;
+  padding: 5px;
+}
+
+#create-podcast button,
+#launch-interactive-discussion {
+  font-size: 0.85em;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+}
+
+#create-podcast label {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85em;
+  width: 80%;
+  margin-bottom: 5px;
+  opacity: 0.8;
+  text-align: left !important;
+}
+
+#create-podcast input {
+  margin-bottom: 5px;
+}
+
+button#launch-interactive-discussion {
+  width: max-content;
+  align-self: center;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+}
+
+#create-podcast fieldset {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#create-podcast fieldset > legend {
+  font-family: "Poppins";
+  font-size: small;
+}

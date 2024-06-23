@@ -1,0 +1,20 @@
+#about {
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  text-align: left;
+  overflow-y: auto;
+  display: flex;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+#about ul {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#about::-webkit-scrollbar {
+  display: none;
+}

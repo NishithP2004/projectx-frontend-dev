@@ -1,0 +1,46 @@
+.courses {
+  height: 85%;
+  margin: 10px auto;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.course {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  gap: 10px;
+  max-width: 150px;
+  min-width: 150px;
+}
+
+.course h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.75);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.course button {
+  padding: 10px;
+  width: 100%;
+  font-family: "Righteous", cursive;
+}
+
+.courses::-webkit-scrollbar,
+.container::-webkit-scrollbar {
+  display: none;
+}

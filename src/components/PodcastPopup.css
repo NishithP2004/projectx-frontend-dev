@@ -1,0 +1,32 @@
+.podcast-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audio-container,
+#transcript-container {
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.audio-container {
+  padding-right: 10px;
+}
+
+#transcript-container {
+  padding-left: 10px;
+}
+
+@media all and (max-width: 720px) {
+  .podcast-container {
+    flex-direction: column;
+  }
+
+  .audio-container,
+  #transcript-container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

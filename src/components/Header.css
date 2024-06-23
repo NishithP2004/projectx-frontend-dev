@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  flex-flow: row no-wrap;
+  position: fixed;
+  top: 0;
+  margin: 5px auto;
+  padding: 0px 10px;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  text-align: center;
+}
+
+header img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+header h4 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.25em;
+}
+
+header h4::after {
+  content: "/";
+  margin: auto 10px auto 15px;
+  color: #fff;
+}
