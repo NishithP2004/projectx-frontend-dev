@@ -32,6 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan(":method :url :status - :remote-addr"));
 app.use(cors());
+app.use(express.static("public/dist"));
 
 instrument(io, { mode: "development", auth: false });
 
@@ -130,6 +131,10 @@ app.post("/api/podcasts/create", (req, res) => handlePostRequest("/podcasts/crea
 app.get("/api/search", (req, res) => handleGetRequest(`/search?q=${req.query.q}&type=${req.query.type || "google"}`, req, res));
 app.get("/api/reels", (req, res) => handleGetRequest(`/reels?q=${req.query.q}`, req, res));
 app.get("/api/browser", (req, res) => handleGetRequest(`/browser?${req.query.aiEnhanced ? "aiEnhanced=" + req.query.aiEnhanced + "&" : ""}url=${req.query.url}`, req, res));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("public", "dist", "index.html"));
+});
 
 // Socket IO
 io.on("connection", (client) => {
