@@ -34,7 +34,7 @@ app.use(morgan(":method :url :status - :remote-addr"));
 app.use(cors());
 app.use(express.static("public/dist"));
 
-instrument(io, { mode: "development", auth: false });
+instrument(io, { mode: "production", auth: false });
 
 server.listen(PORT, () => {
   console.log(`Server listening on Port: ${PORT}`);
@@ -60,6 +60,7 @@ const handleFetch = async (url, options, res) => {
 const setHeaders = (req) => ({
   headers: {
     Authorization: req.headers.authorization,
+    "X-Auth-Token": req.headers.authorization
   },
 });
 
@@ -103,6 +104,7 @@ app.post("/api/courses/create", upload.single("file"), async (req, res) => {
     let data = await fetch(`${BASE_URL}/api/courses/create`, {
       headers: {
         Authorization: req.headers.authorization,
+        "X-Auth-Token": req.headers.authorization
       },
       body: formData,
       method: "POST",
