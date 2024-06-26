@@ -37,8 +37,8 @@ function InstaSearch({
         },
       });
 
-      const data = await response.text();
-      return data;
+      const data = await response.json();
+      return data?.content;
     } catch (error) {
       console.error(error);
       enqueueSnackbar(`An error occurred while fetching Quiz`, {

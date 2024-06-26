@@ -1,19 +1,4 @@
 const {
-  PromptTemplate
-} = require("langchain/prompts");
-const {
-  RunnableSequence
-} = require("langchain/schema/runnable");
-const {
-  StringOutputParser
-} = require("langchain/schema/output_parser");
-const {
-  formatDocumentsAsString
-} = require("langchain/util/document");
-const {
-  RetrievalQAChain
-} = require("langchain/chains")
-const {
   AzureCosmosDBVectorStore
 } = require("@langchain/community/vectorstores/azure_cosmosdb");
 const {
@@ -34,7 +19,6 @@ const [dbName] = namespace.split(".");
 })();
 
 // -- Models --
-
 const {
   AzureOpenAIEmbeddings
 } = require("@langchain/openai");
@@ -104,12 +88,9 @@ async function retrieveSimilarDocs(query, user, course) {
 }
 
 function serializeDocs(docs) {
-  /* return (docs && docs.length > 0) ? docs.map((doc, i) => {
-    return `
-    ${i}) ${doc.content}
-    `
-  }).join("\n") : ""; */
-  return formatDocumentsAsString(docs)
+  return (docs && docs.length > 0) ? docs.map(doc => {
+    return doc.content
+  }).join("\n") : "";
 }
 
 async function generate_response(question, course, user, context) {
@@ -117,8 +98,26 @@ async function generate_response(question, course, user, context) {
   console.log("Q: " + question);
   let docs, serialized;
 
-  if (!context)
+  if (!context) {
+    /* const semantics = await model.chat.completions.create({
+      messages: [
+        {
+          "role": "system",
+          "content": "Please list the semantic keywords associated with the following user query. Return as a comma-separated list"
+        },
+        {
+          "role": "user",
+          "content": `INPUT: ${question}`
+        }
+      ],
+      model: "gpt-35-turbo",
+      temperature: 0.7
+    })
+    .then(res => res.choices[0].message.content)
+
+    console.log("Semantics: " + semantics) */
     docs = await retrieveSimilarDocs(question, user, course);
+  }
 
   serialized = context || serializeDocs(docs);
 

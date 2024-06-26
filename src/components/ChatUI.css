@@ -41,7 +41,6 @@
 
 #chat-container {
   width: 100%;
-  min-height: 70vh;
   max-height: 50vh;
   margin: auto;
   overflow: hidden;
@@ -72,7 +71,7 @@
   max-height: 100%;
   overflow-y: auto;
   border-radius: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 125px;
 }
 
 .bubble {
